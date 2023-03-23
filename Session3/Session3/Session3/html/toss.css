@@ -1,0 +1,190 @@
+.totalbox {
+  width: 375px;
+  height: 780px;
+  margin: 0 auto;
+  background-color: rgb(240, 240, 245);
+}
+
+.container0 {
+  width: 320px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.tosslogo {
+  width: 100px;
+  height: 30px;
+}
+
+.icons {
+  width: 85px;
+  height: 34px;
+}
+
+.container1 {
+  width: 320px;
+  height: 120px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.tossbank {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word {
+  font-size: 17px;
+  font-weight: 1000;
+}
+
+.vector1 {
+  padding-right: 10px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.icon {
+  width: 35px;
+  padding-left: 13px;
+}
+
+.comment {
+  padding-left: 15px;
+}
+
+.comment1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.comment2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.vector2 {
+  padding-right: 10px;
+}
+
+.blank {
+  width: 320px;
+  height: 15px;
+}
+
+.container2 {
+  width: 320px;
+  height: 453px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.asset {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: first baseline;
+}
+
+.KB {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.KBcontent {
+  padding-left: 7px;
+  padding-bottom: 7px;
+}
+
+.KB2 {
+  width: 50px;
+  padding-left: 7px;
+}
+
+.KB3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  font-weight: 400;
+}
+
+.KB4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.WE {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.WE2 {
+  width: 50px;
+  padding-left: 7px;
+}
+
+.TM {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.send {
+  width: 50px;
+  height: 30px;
+  padding-left: 95px;
+}
+
+.send2 {
+  width: 50px;
+  height: 30px;
+  padding-left: 135px;
+}
+
+.send3 {
+  width: 50px;
+  height: 30px;
+  padding-left: 152px;
+}
+
+.send4 {
+  width: 50px;
+  height: 30px;
+  padding-left: 125px;
+}
+
+.send5 {
+  width: 50px;
+  height: 30px;
+  padding-left: 113px;
+}
+
+.container3 {
+  width: 320px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.bar2 {
+  width: 320px;
+}

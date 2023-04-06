@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail</title>
+  </head>
+  <body>
+    <h2>세부 내용 보여주기</h2>
+    <li>제목</li>
+    <p>{{article.title}}</p>
+    <li>카테고리</li>
+    <p>{{article.category}}</p>
+    <li>내용</li>
+    <p>{{article.content}}</p>
+    <a href="{% url 'list' %}">리스트 보러 가기</a>
+  </body>
+</html>

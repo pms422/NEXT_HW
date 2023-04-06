@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>New Article</title>
+  </head>
+  <body>
+    <h2>글쓰기 페이지</h2>
+    <form action="/new" method="post">
+      {% csrf_token %}
+      <div>
+        <div>글 제목</div>
+        <input type="text" name="title" />
+      </div>
+      <div>
+        <div>카테고리</div>
+        <select name="category">
+          <option value="취미">취미</option>
+          <option value="개발">개발</option>
+          <option value="음식">음식</option>
+          -->
+          <!-- 카테고리 선택하기
+          <!-- {% for category in categories %}
+          <option value="{{category}}">{{category}}</option>
+          {% endfor %} -->
+        </select>
+      </div>
+      <div>
+        <div>글 내용</div>
+        <textarea name="content" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit">작성 완료</button>
+    </form>
+    <a href="{% url 'list' %}">리스트 보러 가기</a>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+body {
+  background-color: #87ceeb;
+  padding: 0;
+}
+
+.content {
+  background-color: white;
+  border-radius: 30px;
+}
+
+.totallist {
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.totalcontents {
+  color: orange;
+}
+
+.next {
+  padding-left: 20px;
+}
+
+.category {
+  padding-bottom: 10px;
+}
+
+.totalcategory {
+  padding-left: 30px;
+}
+
+.number {
+  color: gray;
+}

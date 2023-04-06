@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Article List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'list.css' %}" />
+    <!-- </head>
+  <body>
+    <h2>글 전체 목록</h2>
+    <nav>
+      <ul>
+        {% for category in categories %}
+        <li>
+          <a href="{% url 'category' category %}">{{category}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <a href="{% url 'new' %}">글 쓰러 가기</a>
+  </body>
+</html> -->
+  </head>
+  <body>
+    <div class="content">
+      <div class="total">
+        <div class="totallist"><h2>글 전체 목록</h2></div>
+        <div class="totalcontents">
+          <ul>
+            {% for article in articles %}
+
+            <li>
+              <a href="{% url 'detail' article.id %}">{{article.title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <a class="next" href="{% url 'new' %}">글 쓰러 가기</a>
+      </div>
+
+      <div class="category">
+        <div class="totalcategory"><h2>카테고리</h2></div>
+        <div class="totalcontents">
+          <ul>
+            {% for category , num in category_num %}
+            <li>
+              <a href="{% url 'category' category %}">{{category}} 글목록</a>
+              <div class="number">
+                <h6>글개수 : [{{num}}]</h6>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="content2">민수네 블로그</div>
+    </div>
+  </body>
+</html>

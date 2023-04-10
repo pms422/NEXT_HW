@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    {% load utils %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'home.css' %}?after"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contents">
+      <div class="title2"><h1>To Do List</h1></div>
+    
+    <div class="contents2">
+      <div class="1"><span>제목</span></br></br></div>
+      <div class="2"><span>마감일</span></br></br></div>
+      <div class="3"><span>남은 시간</span></br></br></div>
+    </div>
+      <ul>
+        {% for post in posts %}
+        <div class="bodycontent">
+
+          <div class="subject">
+            <a href="{%	url 'detail'	post.pk %}">{{ post.title }}</a>
+          </div>
+
+          <div class="deadline">
+            <span> {{post.deadline}}</span>
+          </div>
+
+          <div class="dayleft">
+            <span>D - {{ post.deadline|due_date }}</span>
+          </div>
+
+        </div>
+        {% endfor %}
+      </ul>
+
+      <div class="write"><a href="{%	url 'new'	%}">새 일정 추가하기</a></div>
+    </div>
+  </body>
+</html>

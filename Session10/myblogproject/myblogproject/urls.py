@@ -1,5 +1,5 @@
 """
-URL configuration for project project.
+URL configuration for myblogproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -20,12 +20,9 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('new/', views.new, name='new'),
-    path('detail/<int:post_pk>', views.detail, name='detail'),
-    path('edit/<int:post_pk>', views.edit, name='edit'),
-    path('delete/<int:post_pk>', views.delete, name='delete'),
-    path('delete-comment/<int:post_pk>/<int:comment_pk>', views.delete_comment, name='delete-comment'),
-    path('recomment/<int:post_pk>/<int:comment_pk>', views.recomment, name='recomment'),
-    path('delete-recomment/<int:post_pk>/<int:recomment_pk>', views.delete_recomment, name='delete-recomment'),
+    path('new', views.new, name='new'),
+    path('list', views.list, name='list'),
+    path('detail/<int:article_id>', views.detail, name='detail'),
+    path('category/<str:category>', views.category, name='category'), #문자열
 ]
+

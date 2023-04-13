@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post, Comment
+from .models import Post, Comment, Re_Comment
 
 
 def home(request):
@@ -69,4 +69,33 @@ def delete_comment(request, post_pk, comment_pk):
    comment.delete()
 
    return redirect('detail', post_pk)
+
+
+
+# def recomment (request, post_pk, comment_pk):
+#    post = Post.objects.get(pk=post_pk)
+#    if request.method == 'POST':
+#       comment = Comment.objects.get(pk=comment_pk)
+#       content = request.POST['re_content']
+#       Comment.objects.create(
+#          post = post,
+#          content = content,
+#          parent_comment = comment,
+#       )
+
+def recomment(request, post_pk, comment_pk):
+    comment=Comment.objects.get(id=comment_pk)
+    if request.method=="POST":
+        Re_Comment.objects.create(
+            comment=comment,
+            content=request.POST['content'],
+        )
+        return redirect('detail', post_pk)
+    
+def delete_recomment(request, post_pk, recomment_pk):
+   recomment = Re_Comment.objects.get(pk = recomment_pk)
+   recomment.delete()
+
+   return redirect('detail', post_pk)
+
 

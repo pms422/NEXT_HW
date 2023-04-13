@@ -16,12 +16,12 @@
     <title>Project</title>
   </head>
   {% block css %}
-  <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'home.css?after' %}" />
   {% endblock %}
 
   <body>
-    <!-- <div class="title">Home!</div>
-    <div class="container">
+    <div class="totalbox">
+      {% block title %} 글 전체 목록 {% endblock %} {% block content %}
       <div class="posts_box">
         {% for post in posts %}
         <a href="{% url 'detail' post.pk %}">
@@ -33,19 +33,7 @@
         {% endfor %}
       </div>
       <a id="post-button" href="{% url 'new' %}">글 쓰러 가기!</a>
-    </div> -->
-    {% block title %} Home! {% endblock %} {% block content %}
-    <div class="posts_box">
-      {% for post in posts %}
-      <a href="{% url 'detail' post.pk %}">
-        <div class="post_wrapper">
-          <div class="post_title">제목: {{post.title}}</div>
-          <div class="post_content">내용 : {{post.content}}</div>
-        </div>
-      </a>
-      {% endfor %}
+      {% endblock %}
     </div>
-    <a id="post-button" href="{% url 'new' %}">글 쓰러 가기!</a>
-    {% endblock %}
   </body>
 </html>

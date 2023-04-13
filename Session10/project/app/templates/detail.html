@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% extends 'base.html' %}
     {% load static %}
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
@@ -14,6 +15,7 @@
     />
     <title>Project</title>
   </head>
+  {% block content %}
   <body>
     <div class="title">Detail!</div>
     <div class="container">
@@ -37,10 +39,25 @@
           {% for comment in post.comments.all %}
           <li>{{comment.content}}
             <a href={% url 'delete-comment' post.pk comment.pk %}>삭제</a>
+        
           </li>
+
+          <form action="{% url 'recomment' post.pk comment.pk %}" method="POST">
+            {% csrf_token %}
+            ⤷<input type="text" name="content" placeholder="대댓글 입력">
+            <button type="submit">작성하기</button>
+          </form>
+
+            {% for recomment in comment.re_comments.all %}
+            <li>{{recomment.content}}
+             <a href={% url 'delete-recomment' post.pk recomment.pk %}>삭제</a>
+            </li>
+            {% endfor %}
+
           {% endfor %}
         </div>
       </div>
     </div>
   </body>
+  {% endblock content %}
 </html>

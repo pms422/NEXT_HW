@@ -18,12 +18,33 @@
   </head>
 
   <body>
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <a href="{% url 'home' %}">NEXT-LIKELION</a>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__menu__item">
+          <a href="{% url 'new' %}">New</a>
+        </li>
+        <li class="navbar__menu__item">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        <span class="navbar__menu__item">안녕, {{user.username}}</span>
+        <li class="navbar__menu__item">
+          <a href="{% url 'logout'%}">로그아웃</a>
+        </li>
+        {% else %}
+        <li class="navbar__menu__item">
+          <a href="{% url 'login'%}">로그인</a>
+        </li>
+        <li class="navbar__menu__item">
+          <a href="{% url 'signup'%}">회원가입</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
     <div class="title">{% block title %} {% endblock title %}</div>
     <div class="container">{% block content %} {% endblock content %}</div>
-    <footer>
-      <div>주소 : 서울특별시 동대문구 제기로 4길 1</div>
-      <div>대표자 : 박민수</div>
-      <div>연락처 : 010-XXXX-XXXX</div>
-    </footer>
   </body>
 </html>

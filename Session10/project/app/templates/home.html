@@ -21,7 +21,7 @@
 
   <body>
     <div class="totalbox">
-      {% block title %} 글 전체 목록 {% endblock %} {% block content %}
+      {% block title %} 글 전체 목록 {% endblock %} {% block content %} <br />
       <div class="posts_box">
         {% for post in posts %}
         <a href="{% url 'detail' post.pk %}">
@@ -30,6 +30,7 @@
             <div class="post_content">내용 : {{post.content}}</div>
           </div>
         </a>
+        <br />
         {% endfor %}
       </div>
       <a id="post-button" href="{% url 'new' %}">글 쓰러 가기!</a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% load static %}
+    {% load account socialaccount %} {% providers_media_js %} {% load static %}
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,6 +20,40 @@
   <body>
     <div class="title">{% block title %} {% endblock title %}</div>
     <div class="container">{% block content %} {% endblock content %}</div>
+
+    <br />
+    {% if user.is_authenticated %}
+    <span class="navbar__menu__item">Hello, {{user.username}}</span>
+    <li class="navbar__menu__item">
+      <a href="{% url 'logout'%}">로그아웃</a>
+    </li>
+    {% else %}
+    <li class="navbar__menu__item">
+      <a href="{% url 'login'%}">로그인</a>
+    </li>
+    <li class="navbar__menu__item">
+      <a href="{% url 'signup'%}">회원가입</a>
+    </li>
+    <!-- <li class="navbar__menu__item">
+      <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a>
+    </li> -->
+    <form method="POST" action="{% provider_login_url 'kakao' %}">
+      {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+      <input
+        type="hidden"
+        name="{{ redirect_field_name }}"
+        value="{{ redirect_field_value }}"
+      />
+      {% endif %}
+      <li>
+        <button class="primaryAction" type="submit">
+          <img class="kakaoimg" src="{% static 'kakaoimg.png'%}" />
+        </button>
+      </li>
+      <br />
+    </form>
+    {% endif %}
+
     <footer>
       <div>주소 : 서울특별시 동대문구 제기로 4길 1</div>
       <div>대표자 : 박민수</div>

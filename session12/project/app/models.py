@@ -7,6 +7,7 @@ class Post(models.Model):
    content = models.TextField()
    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', default=1)
 
+
    def __str__(self):
        return self.title
    
@@ -15,17 +16,6 @@ class Comment(models.Model):
    content = models.TextField()
    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
 
+
    def __str__(self):
        return self.content
-
-class Re_Comment(models.Model):
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='re_comments')
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='re_comments')
-
-
-    
-    def __str__(self):
-        return self.content
-
-

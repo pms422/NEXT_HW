@@ -1,8 +1,10 @@
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
-from .models import Post, Comment, Re_Comment
+from django.shortcuts import redirect, render
+
+from .models import Comment, Post
+
 
 def signup(request):
    if request.method == 'POST':
@@ -33,15 +35,15 @@ def login(request):
         
    return render(request, 'registration/login.html')
 
-def logout(request):
-   auth.logout(request)
-   return redirect('home')
-
 def home(request):
    posts = Post.objects.all()
 
-
    return render(request, 'home.html', {'posts':posts})
+
+
+def logout(request):
+   auth.logout(request)
+   return redirect('home')
 
 @login_required(login_url="/registration/login/")
 def new(request):
@@ -62,19 +64,17 @@ def new(request):
 @login_required(login_url="/registration/login/")
 def detail(request, post_pk):
    post = Post.objects.get(pk=post_pk)
-
+   
    if request.method == 'POST':
-       content = request.POST['content']
-       Comment.objects.create(
-           post = post,
-           content = content,
-           author=request.user
-       )
-       return redirect('detail', post_pk);
+        content = request.POST['content']
+        Comment.objects.create(
+            post=post,
+            content=content,
+            author=request.user
+        )
+        return redirect('detail', post_pk);
 
    return render(request, 'detail.html', {'post':post})
-
-
 
 
 def edit(request, post_pk):
@@ -94,46 +94,13 @@ def edit(request, post_pk):
    return render(request, 'edit.html', {'post':post})
 
 
-
-
 def delete(request, post_pk):
    post = Post.objects.get(pk=post_pk)
    post.delete()
-
    return redirect('home')
+
 
 def delete_comment(request, post_pk, comment_pk):
    comment = Comment.objects.get(pk=comment_pk)
    comment.delete()
-
    return redirect('detail', post_pk)
-
-
-
-# def recomment (request, post_pk, comment_pk):
-#    post = Post.objects.get(pk=post_pk)
-#    if request.method == 'POST':
-#       comment = Comment.objects.get(pk=comment_pk)
-#       content = request.POST['re_content']
-#       Comment.objects.create(
-#          post = post,
-#          content = content,
-#          parent_comment = comment,
-#       )
-
-def recomment(request, post_pk, comment_pk):
-    comment=Comment.objects.get(id=comment_pk)
-    if request.method=="POST":
-        Re_Comment.objects.create(
-            comment=comment,
-            content=request.POST['content'],
-        )
-        return redirect('detail', post_pk)
-    
-def delete_recomment(request, post_pk, recomment_pk):
-   recomment = Re_Comment.objects.get(pk = recomment_pk)
-   recomment.delete()
-
-   return redirect('detail', post_pk)
-
-
